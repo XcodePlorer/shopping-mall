@@ -1,10 +1,10 @@
 import { createSelector } from "reselect"
 import { priceAfterDiscount } from "../helper/helper"
 export const filtersSelector = (state) => state.filters
-export const productsSeletor = (state) => state.products
+export const productsSelector = (state) => state.products
 
 export const filteredProductsSelector = createSelector(
-    productsSeletor,
+    productsSelector,
     filtersSelector,
     (products, filters) => {
         const { searchText, brand, category, status, price } = filters
@@ -18,7 +18,7 @@ export const filteredProductsSelector = createSelector(
         if (category !== 'All') {
             filteredProducts = filteredProducts.filter(p => p?.category === category)
         }
-        if (price != '0,0') {
+        if (price !== '0,0') {
             const [min, max] = price.split(",")
             if (min !== max) {
                 filteredProducts = filteredProducts.filter((p) => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchPrice } from "../../reducers/actions";
+import { actionTypes, setSearchByType,} from "../../reducers/actions";
 import { filtersSelector } from "../../reducers/selectors";
 
 const prices = [
@@ -60,7 +60,7 @@ function Price() {
                                         id={`price_${index}`}
                                         value={item.value}
                                         defaultChecked={item.name === 'All'}
-                                        onChange={() => dispatch(setSearchPrice(item.value))}
+                                        onChange={() => dispatch(setSearchByType(actionTypes.price,item.value))}
                                     />
                                     <label
                                         role="button"

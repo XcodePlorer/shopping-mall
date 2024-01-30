@@ -1,9 +1,9 @@
 import React from "react";
-import { FaCartPlus, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
+import { FaSearch, } from 'react-icons/fa'
 import { SiKasasmart } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { setSearchText } from "../../reducers/actions";
+import { actionTypes, setSearchByType, } from "../../reducers/actions";
 
 function Navbar() {
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ function Navbar() {
                             placeholder="Enter product name"
                             className="form-control"
                             style={{ paddingRight: '25px' }}
-                            onInput={(e) => dispatch(setSearchText(e.target.value))}
+                            onInput={(e) => dispatch(setSearchByType(actionTypes.text,e.target.value))}
                         />
                         <FaSearch size={15} style={{ marginLeft: '-25px', color: 'rgba(0,0,0,.2)' }} />
                     </form>

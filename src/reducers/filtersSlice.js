@@ -1,3 +1,5 @@
+import { actionTypes } from "./actions"
+
 const initState = {
     searchText: '',
     status: [],
@@ -8,31 +10,31 @@ const initState = {
 
 const filtersSlice = (state = initState, action) => {
     switch (action.type) {
-        case 'filters/searchText': {
+        case actionTypes.text: {
             return {
                 ...state,
                 searchText: action.payload
             }
         }
-        case 'filters/searchBrand': {
+        case actionTypes.brand: {
             return {
                 ...state,
                 brand: action.payload
             }
         }
-        case 'filters/searchCategory': {
+        case actionTypes.category: {
             return {
                 ...state,
                 category: action.payload
             }
         }
-        case 'filters/searchPricet': {
+        case actionTypes.price: {
             return {
                 ...state,
                 price: action.payload
             }
         }
-        case 'filters/searchStatus': {
+        case actionTypes.status: {
             let statusList = [...state.status]
             if (statusList.includes(action.payload)) {
                 statusList = statusList.filter((item) => item !== action.payload)

@@ -10,7 +10,7 @@ export default function Footer() {
                         <SiKasasmart size={30} className="me-2" />
                         <span className="fs-4">Shopping Mall</span>
                     </Link>
-                    <p>Shopping Mall {(new Date).getFullYear()}</p>
+                    <p>Shopping Mall {(new Date()).getFullYear()}</p>
                     <p>All Right Reserved &copy;</p>
                 </div>
                 <div>

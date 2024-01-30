@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import GenerateStar from "../Star/GenerateStar";
+import { priceAfterDiscount } from "../../helper/helper";
 
 function Product({ product }) {
     return (
@@ -28,7 +29,7 @@ function Product({ product }) {
                     <div className="d-flex align-items-center justify-content-between">
                         <div>
                             <del className="line-through me-2">${product?.price}</del>
-                            <span className="fs-4 text-danger fw-bolder">${Math.round((product?.price * (1 - Number(product?.discountPercentage) * 0.01)))}</span>
+                            <span className="fs-4 text-danger fw-bolder">${priceAfterDiscount(product?.price, product?.discountPercentage)}</span>
                         </div>
                         <FaCartArrowDown size={20} className="btn-cart" />
                     </div>

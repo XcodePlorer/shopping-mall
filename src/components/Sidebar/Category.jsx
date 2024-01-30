@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchCategory } from "../../reducers/actions";
+import { actionTypes, setSearchByType } from "../../reducers/actions";
 import { filtersSelector } from "../../reducers/selectors";
 
 const categories = [
@@ -48,7 +48,7 @@ function Category() {
                                         id={`cat_${index}`}
                                         value={cat.value}
                                         defaultChecked={cat.value === 'All'}
-                                        onChange={() => dispatch(setSearchCategory(cat.value))}
+                                        onChange={() => dispatch(setSearchByType(actionTypes.category,cat.value))}
                                     />
                                     <label
                                         htmlFor={`cat_${index}`}

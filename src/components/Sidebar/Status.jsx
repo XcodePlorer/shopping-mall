@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSearchStatus } from "../../reducers/actions";
+import { actionTypes, setSearchByType, } from "../../reducers/actions";
 
 const statusList = ["In stock", "On Sale"]
 function Status() {
@@ -21,7 +21,7 @@ function Status() {
                             statusList.map((status, index) => (
                                 <div key={index} className="form-check">
                                     <input class="form-check-input" type="checkbox" value={status} 
-                                        onChange={() => dispatch(setSearchStatus(status))}
+                                        onChange={() => dispatch(setSearchByType(actionTypes.status,status))}
                                     />
                                     <label class="form-check-label">{status}</label>
                                 </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchBrand } from "../../reducers/actions";
+import { actionTypes, setSearchByType } from "../../reducers/actions";
 import { filtersSelector } from "../../reducers/selectors";
 
 const brandList = [
@@ -104,7 +104,7 @@ function Brand() {
                                 <button key={item.value}
                                     className={`btn btn-sm btn-outline-secondary me-1 mb-1 ${item.value === brand ? 'active' : ''}`}
                                     type="button"
-                                    onClick={() => dispatch(setSearchBrand(item.value))}
+                                    onClick={() => dispatch(setSearchByType(actionTypes.brand, item.value))}
                                 >
                                     {item.name}
                                 </button>
